@@ -11,6 +11,7 @@ import {
 } from "recharts";
 
 const RevenueChart: React.FC = () => {
+  // Sample data representing monthly revenue breakdown of Commission and Subscription
   const data = [
     { name: "Jan", Commission: 38000, Subscription: 10000 },
     { name: "Feb", Commission: 18000, Subscription: 22000 },
@@ -23,7 +24,9 @@ const RevenueChart: React.FC = () => {
   ];
 
   return (
+    // Main container: centered, max width 600px, white bg, rounded corners, shadow, padding
     <div className="w-full max-w-[600px] mx-auto my-2 sm:my-8 px-2 sm:px-8 bg-white rounded-xl sm:rounded-4xl shadow-md p-2 sm:p-6">
+      {/* Header with title and a year selection dropdown */}
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-base sm:text-xl font-semibold text-gray-800">
           Revenue Breakdown
@@ -44,12 +47,14 @@ const RevenueChart: React.FC = () => {
         </select>
       </div>
 
+      {/* Chart container with fixed height, responsive width */}
       <div className="h-48 sm:h-78">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={data}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
+            {/* Define linear gradients for the fill colors of Commission and Subscription areas */}
             <defs>
               <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#22C55E" stopOpacity={0.5} />
@@ -61,12 +66,15 @@ const RevenueChart: React.FC = () => {
               </linearGradient>
             </defs>
 
+            {/* X-Axis: maps to the 'name' key, styled to hide axis lines */}
             <XAxis
               dataKey="name"
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
             />
+
+            {/* Y-Axis: range 0-50k, ticks every 10k, styled */}
             <YAxis
               axisLine={false}
               tickLine={false}
@@ -74,6 +82,8 @@ const RevenueChart: React.FC = () => {
               domain={[0, 50000]}
               ticks={[0, 10000, 20000, 30000, 40000, 50000]}
             />
+
+            {/* Tooltip for hover data display with custom styling */}
             <Tooltip
               cursor={{ fill: "rgba(0,0,0,0.05)" }}
               contentStyle={{
@@ -83,6 +93,8 @@ const RevenueChart: React.FC = () => {
                 fontSize: "12px",
               }}
             />
+
+            {/* Area for Commission with green stroke and gradient fill */}
             <Area
               type="monotone"
               dataKey="Commission"
@@ -90,6 +102,8 @@ const RevenueChart: React.FC = () => {
               strokeWidth={2}
               fill="url(#greenGradient)"
             />
+
+            {/* Area for Subscription with blue stroke and gradient fill */}
             <Area
               type="monotone"
               dataKey="Subscription"
@@ -97,6 +111,8 @@ const RevenueChart: React.FC = () => {
               strokeWidth={2}
               fill="url(#blueGradient)"
             />
+
+            {/* Legend at bottom showing color icons and labels */}
             <Legend
               verticalAlign="bottom"
               height={32}

@@ -11,6 +11,7 @@ import {
 } from "recharts";
 
 const TicketStatusChart: React.FC = () => {
+  // Data representing ticket statuses with values for Client and Agency
   const data = [
     { name: "Open", Client: 32, Agency: 21 },
     { name: "In Progress", Client: 11, Agency: 33 },
@@ -19,8 +20,9 @@ const TicketStatusChart: React.FC = () => {
   ];
 
   return (
+    // Main container with width limit, padding, rounded corners, and shadow
     <div className="w-full max-w-[600px] mx-auto my-4 sm:my-8 bg-white rounded-xl sm:rounded-4xl shadow-md p-2 sm:p-6">
-      {/* Header */}
+      {/* Header with title and dropdown selector */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 sm:mb-4 gap-2 sm:gap-0">
         <h3 className="text-base sm:text-lg font-semibold text-gray-800">
           Ticket Status
@@ -42,21 +44,23 @@ const TicketStatusChart: React.FC = () => {
         </select>
       </div>
 
-      {/* Chart */}
+      {/* Chart area with fixed height and responsive width */}
       <div className="h-48 sm:h-88">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            barCategoryGap={0}
-            margin={{ top: 10, right: 10, left: -10, bottom: 30 }}
+            barCategoryGap={0} // No gap between groups of bars
+            margin={{ top: 10, right: 10, left: -10, bottom: 30 }} // Chart margins
           >
+            {/* X-axis showing ticket status names */}
             <XAxis
               dataKey="name"
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
-              interval={0}
+              interval={0} // Show all ticks, no skipping
             />
+            {/* Y-axis with domain 0 to 50 and ticks every 10 */}
             <YAxis
               axisLine={false}
               tickLine={false}
@@ -65,7 +69,7 @@ const TicketStatusChart: React.FC = () => {
               ticks={[0, 10, 20, 30, 40]}
             />
 
-            {/* Tooltip */}
+            {/* Tooltip with rounded corners and subtle shadow */}
             <Tooltip
               cursor={{ fill: "rgba(0,0,0,0.05)" }}
               contentStyle={{
@@ -76,20 +80,22 @@ const TicketStatusChart: React.FC = () => {
               }}
             />
 
-            {/* Thicker and fully rounded bars */}
+            {/* Bars for Client and Agency with green and blue colors,
+                fully rounded corners, fixed bar width */}
             <Bar
               dataKey="Client"
-              fill="#10B981"
-              radius={[999, 999, 999, 999]}
-              barSize={40}
+              fill="#10B981" // green
+              radius={[999, 999, 999, 999]} // fully rounded corners
+              barSize={40} // width of the bars
             />
             <Bar
               dataKey="Agency"
-              fill="#3B82F6"
+              fill="#3B82F6" // blue
               radius={[999, 999, 999, 999]}
               barSize={40}
             />
 
+            {/* Legend below the chart with circle icons */}
             <Legend
               verticalAlign="bottom"
               iconType="circle"

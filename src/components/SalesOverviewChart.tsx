@@ -10,6 +10,7 @@ import {
 } from "recharts";
 
 const SalesOverviewChart: React.FC = () => {
+  // Sample monthly sales data for each month (JAN to AUG)
   const data = [
     { name: "JAN", value: 320 },
     { name: "FEB", value: 180 },
@@ -22,8 +23,9 @@ const SalesOverviewChart: React.FC = () => {
   ];
 
   return (
+    // Container with max width, padding, rounded corners, shadow, centered horizontally
     <div className="w-full max-w-[600px] mx-auto my-4 sm:my-8 bg-white rounded-xl sm:rounded-3xl shadow-md p-2 sm:p-6">
-      {/* Header */}
+      {/* Header: Title + month selector dropdown */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 sm:mb-6 gap-2 sm:gap-0">
         <h3 className="text-base sm:text-lg font-semibold text-gray-800">
           Sales Overview
@@ -45,20 +47,23 @@ const SalesOverviewChart: React.FC = () => {
         </select>
       </div>
 
-      {/* Chart */}
+      {/* Chart container with fixed height, responsive width */}
       <div className="h-48 sm:h-80">
         <ResponsiveContainer width="100%" height="100%">
+          {/* Bar chart component with margin and spacing between bars */}
           <BarChart
             data={data}
             margin={{ top: 20, right: 30, left: 10, bottom: 5 }}
-            barCategoryGap="15%"
+            barCategoryGap="15%" // gap between bars of different categories
           >
+            {/* X-axis: months labels with no lines, styled ticks */}
             <XAxis
               dataKey="name"
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
             />
+            {/* Y-axis: from 0 to 500 with ticks every 100 units, styled */}
             <YAxis
               axisLine={false}
               tickLine={false}
@@ -66,6 +71,7 @@ const SalesOverviewChart: React.FC = () => {
               domain={[0, 500]}
               ticks={[0, 100, 200, 300, 400, 500]}
             />
+            {/* Tooltip with light background and shadow */}
             <Tooltip
               cursor={{ fill: "rgba(0,0,0,0.05)" }}
               contentStyle={{
@@ -75,10 +81,16 @@ const SalesOverviewChart: React.FC = () => {
                 fontSize: "12px",
               }}
             />
+            {/* Bar component:
+                - uses 'value' from data
+                - blue fill color (#2563EB)
+                - fully rounded corners (radius 999)
+                - max bar width 50px
+            */}
             <Bar
               dataKey="value"
               fill="#2563EB"
-              radius={[999, 999, 999, 999]} // Fully rounded
+              radius={[999, 999, 999, 999]}
               maxBarSize={50}
             />
           </BarChart>

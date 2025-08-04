@@ -11,6 +11,7 @@ import {
 } from "recharts";
 
 const ApiCallsChart: React.FC = () => {
+  // Sample data for the chart showing Commission and Subscription values over days
   const data = [
     { name: "Jan 1", Commission: 12000, Subscription: 8000 },
     { name: "Jan 2", Commission: 18000, Subscription: 14000 },
@@ -22,17 +23,20 @@ const ApiCallsChart: React.FC = () => {
   ];
 
   return (
+    // Main container with responsive max width and padding/styling
     <div className="w-full max-w-[600px] mx-auto my-2 sm:my-8 px-2 sm:px-8 bg-white rounded-xl sm:rounded-4xl shadow-md p-2 sm:p-6">
-      {/* Header */}
+      {/* Header section with title */}
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-base sm:text-xl font-semibold text-gray-800">
           API Calls Over Time
         </h3>
       </div>
 
-      {/* Chart Container */}
+      {/* Chart wrapper with fixed height */}
       <div className="h-48 sm:h-78">
+        {/* ResponsiveContainer makes the chart scale with its container */}
         <ResponsiveContainer width="100%" height="100%">
+          {/* AreaChart component configured with margins */}
           <AreaChart
             data={data}
             margin={{
@@ -42,7 +46,7 @@ const ApiCallsChart: React.FC = () => {
               bottom: 0,
             }}
           >
-            {/* Tooltip */}
+            {/* Tooltip on hover with customized styling */}
             <Tooltip
               cursor={{ fill: "rgba(0,0,0,0.05)" }}
               contentStyle={{
@@ -52,8 +56,10 @@ const ApiCallsChart: React.FC = () => {
                 fontSize: "12px",
               }}
             />
+
+            {/* Definitions of gradient fills used in the areas */}
             <defs>
-              {/* Gradient for Commission area */}
+              {/* Purple gradient for Commission area */}
               <linearGradient
                 id="commissionGradient"
                 x1="0"
@@ -64,7 +70,7 @@ const ApiCallsChart: React.FC = () => {
                 <stop offset="5%" stopColor="#8B5CF6" stopOpacity={0.3} />
                 <stop offset="95%" stopColor="#8B5CF6" stopOpacity={0.1} />
               </linearGradient>
-              {/* Gradient for Subscription area */}
+              {/* Blue gradient for Subscription area */}
               <linearGradient
                 id="subscriptionGradient"
                 x1="0"
@@ -77,21 +83,24 @@ const ApiCallsChart: React.FC = () => {
               </linearGradient>
             </defs>
 
+            {/* X-axis configuration */}
             <XAxis
               dataKey="name"
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
             />
+
+            {/* Y-axis configuration with custom ticks and domain */}
             <YAxis
               axisLine={false}
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
-              domain={[0, 30000]}
-              ticks={[0, 6000, 12000, 18000, 24000, 30000]}
+              domain={[0, 30000]} // Y-axis range from 0 to 30k
+              ticks={[0, 6000, 12000, 18000, 24000, 30000]} // Custom tick marks
             />
 
-            {/* Commission Area */}
+            {/* Area for Commission data with stroke and fill gradient */}
             <Area
               type="monotone"
               dataKey="Commission"
@@ -100,7 +109,7 @@ const ApiCallsChart: React.FC = () => {
               fill="url(#commissionGradient)"
             />
 
-            {/* Subscription Area */}
+            {/* Area for Subscription data with stroke and fill gradient */}
             <Area
               type="monotone"
               dataKey="Subscription"
@@ -109,6 +118,7 @@ const ApiCallsChart: React.FC = () => {
               fill="url(#subscriptionGradient)"
             />
 
+            {/* Legend placed at bottom with circle icons */}
             <Legend
               verticalAlign="bottom"
               height={32}
