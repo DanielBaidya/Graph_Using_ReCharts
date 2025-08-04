@@ -27,11 +27,23 @@ const TicketStatusChart: React.FC = () => {
         </h3>
         <select className="text-xs sm:text-sm border border-gray-300 rounded px-2 sm:px-3 py-1 bg-white">
           <option>This Month</option>
+          <option>Jan</option>
+          <option>Feb</option>
+          <option>Mar</option>
+          <option>Apr</option>
+          <option>May</option>
+          <option>Jun</option>
+          <option>Jul</option>
+          <option>Aug</option>
+          <option>Sept</option>
+          <option>Oct</option>
+          <option>Nov</option>
+          <option>Dec</option>{" "}
         </select>
       </div>
 
       {/* Chart */}
-      <div className="h-48 sm:h-80">
+      <div className="h-48 sm:h-88">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
@@ -50,7 +62,7 @@ const TicketStatusChart: React.FC = () => {
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
               domain={[0, 50]}
-              ticks={[0, 10, 20, 30, 40, 50]}
+              ticks={[0, 10, 20, 30, 40]}
             />
 
             {/* Tooltip */}

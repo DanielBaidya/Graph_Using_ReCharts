@@ -30,7 +30,7 @@ const DataTransferChart: React.FC = () => {
           </h3>
         </div>
 
-        <div className="h-48 sm:h-64">
+        <div className="h-48 sm:h-78">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={areaData}
@@ -70,6 +70,7 @@ const DataTransferChart: React.FC = () => {
                 tickLine={false}
                 tick={{ fontSize: 10, fill: "#6B7280" }}
                 domain={[0, 30000]}
+                ticks={[0, 6000, 12000, 18000, 24000, 30000]}
               />
               <Tooltip
                 cursor={{ fill: "rgba(0,0,0,0.05)" }}

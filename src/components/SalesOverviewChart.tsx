@@ -30,6 +30,18 @@ const SalesOverviewChart: React.FC = () => {
         </h3>
         <select className="text-xs sm:text-sm border border-gray-300 rounded px-2 sm:px-3 py-1 bg-white">
           <option>This Month</option>
+          <option>Jan</option>
+          <option>Feb</option>
+          <option>Mar</option>
+          <option>Apr</option>
+          <option>May</option>
+          <option>Jun</option>
+          <option>Jul</option>
+          <option>Aug</option>
+          <option>Sept</option>
+          <option>Oct</option>
+          <option>Nov</option>
+          <option>Dec</option>{" "}
         </select>
       </div>
 

@@ -1,6 +1,7 @@
 import ApiCallsChart from "@/components/ApiCallCharts";
 import DataTransferChart from "@/components/DataTransferChart";
 import LineGraphCard from "@/components/LineDataTransferChart";
+import RevenueChart from "@/components/RevenueBreakdownChart";
 import SalesOverviewChart from "@/components/SalesOverviewChart";
 import TicketStatusChart from "@/components/TicketStatusChart";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <DataTransferChart />
       <ApiCallsChart />
       <LineGraphCard />
+      <RevenueChart />
     </div>
   );
 }

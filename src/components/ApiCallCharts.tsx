@@ -25,13 +25,13 @@ const ApiCallsChart: React.FC = () => {
     <div className="w-full max-w-[600px] mx-auto my-2 sm:my-8 px-2 sm:px-8 bg-white rounded-xl sm:rounded-4xl shadow-md p-2 sm:p-6">
       {/* Header */}
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-base sm:text-3xl font-semibold text-gray-800">
+        <h3 className="text-base sm:text-xl font-semibold text-gray-800">
           API Calls Over Time
         </h3>
       </div>
 
       {/* Chart Container */}
-      <div className="h-48 sm:h-64">
+      <div className="h-48 sm:h-78">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={data}
@@ -88,6 +88,7 @@ const ApiCallsChart: React.FC = () => {
               tickLine={false}
               tick={{ fontSize: 10, fill: "#6B7280" }}
               domain={[0, 30000]}
+              ticks={[0, 6000, 12000, 18000, 24000, 30000]}
             />
 
             {/* Commission Area */}
