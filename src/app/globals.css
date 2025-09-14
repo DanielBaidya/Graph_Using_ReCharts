@@ -1,4 +1,7 @@
 @import "tailwindcss";
 body {
-  @apply bg-sky-100;
+  @apply bg-gradient-to-r from-sky-50 via-sky-100 to-sky-200;
+  box-shadow: inset 0 0 60px 25px rgba(14, 165, 233, 0.15); /* soft blue glow */
+  transition: background 0.5s ease-in-out;
+  backdrop-filter: saturate(180%) blur(15px); /* modern soft blur effect */
 }

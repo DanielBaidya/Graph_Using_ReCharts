@@ -13,7 +13,7 @@ import {
 const RevenueChart: React.FC = () => {
   // Sample data representing monthly revenue breakdown of Commission and Subscription
   const data = [
-    { name: "Jan", Commission: 38000, Subscription: 10000 },
+    { name: "Jan", Commission: 38000, Subscription: 8000 },
     { name: "Feb", Commission: 18000, Subscription: 22000 },
     { name: "Mar", Commission: 42000, Subscription: 8000 },
     { name: "Apr", Commission: 20000, Subscription: 26000 },
@@ -56,10 +56,13 @@ const RevenueChart: React.FC = () => {
           >
             {/* Define linear gradients for the fill colors of Commission and Subscription areas */}
             <defs>
+              {/* Gradient for commision green */}
               <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#22C55E" stopOpacity={0.5} />
                 <stop offset="95%" stopColor="#22C55E" stopOpacity={0.1} />
               </linearGradient>
+
+              {/* Gradient for subscription blue */}
               <linearGradient id="blueGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#38BDF8" stopOpacity={0.5} />
                 <stop offset="100%" stopColor="#38BDF8" stopOpacity={0.1} />

@@ -13,10 +13,10 @@ import {
 const LineGraphCard: React.FC = () => {
   // Sample data for the line graph (7 days with values)
   const data = [
-    { name: "Jan 1", value: 120 },
+    { name: "Jan 1", value: 720 },
     { name: "Jan 2", value: 340 },
     { name: "Jan 3", value: 460 },
-    { name: "Jan 4", value: 220 },
+    { name: "Jan 4", value: 720 },
     { name: "Jan 5", value: 680 },
     { name: "Jan 6", value: 540 },
     { name: "Jan 7", value: 320 },
